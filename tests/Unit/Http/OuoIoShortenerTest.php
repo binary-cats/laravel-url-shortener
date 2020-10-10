@@ -1,13 +1,13 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Unit\Http;
+namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
-use LaraCrafts\UrlShortener\Http\OuoIoShortener;
+use BinaryCats\UrlShortener\Http\OuoIoShortener;
 
 class OuoIoShortenerTest extends HttpTestCase
 {
     /**
-     * @var \LaraCrafts\UrlShortener\Http\OuoIoShortener
+     * @var \BinaryCats\UrlShortener\Http\OuoIoShortener
      */
     protected $shortener;
 

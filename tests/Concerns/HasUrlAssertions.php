@@ -1,9 +1,9 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Concerns;
+namespace BinaryCats\UrlShortener\Tests\Concerns;
 
-use LaraCrafts\UrlShortener\Tests\Constraints\IsValidUrl;
-use LaraCrafts\UrlShortener\Tests\Constraints\RedirectsTo;
+use BinaryCats\UrlShortener\Tests\Constraints\IsValidUrl;
+use BinaryCats\UrlShortener\Tests\Constraints\RedirectsTo;
 
 trait HasUrlAssertions
 {
@@ -33,7 +33,7 @@ trait HasUrlAssertions
     /**
      * Create a IsValidUrl instance
      *
-     * @return \LaraCrafts\UrlShortener\Tests\Constraints\IsValidUrl
+     * @return \BinaryCats\UrlShortener\Tests\Constraints\IsValidUrl
      */
     public static function isValidUrl()
     {
@@ -45,7 +45,7 @@ trait HasUrlAssertions
      *
      * @param \Psr\Http\Message\UriInterface|string $expected
      * @param int $redirects
-     * @return \LaraCrafts\UrlShortener\Tests\Constraints\RedirectsTo
+     * @return \BinaryCats\UrlShortener\Tests\Constraints\RedirectsTo
      */
     public static function redirectsTo($expected, int $redirects = 1)
     {

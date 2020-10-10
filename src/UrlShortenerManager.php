@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraCrafts\UrlShortener;
+namespace BinaryCats\UrlShortener;
 
 use Closure;
 use GuzzleHttp\ClientInterface;
@@ -8,14 +8,14 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use LaraCrafts\UrlShortener\Contracts\Factory as FactoryContract;
-use LaraCrafts\UrlShortener\Http\BitLyShortener;
-use LaraCrafts\UrlShortener\Http\FirebaseShortener;
-use LaraCrafts\UrlShortener\Http\IsGdShortener;
-use LaraCrafts\UrlShortener\Http\OuoIoShortener;
-use LaraCrafts\UrlShortener\Http\PolrShortener;
-use LaraCrafts\UrlShortener\Http\ShorteStShortener;
-use LaraCrafts\UrlShortener\Http\TinyUrlShortener;
+use BinaryCats\UrlShortener\Contracts\Factory as FactoryContract;
+use BinaryCats\UrlShortener\Http\BitLyShortener;
+use BinaryCats\UrlShortener\Http\FirebaseShortener;
+use BinaryCats\UrlShortener\Http\IsGdShortener;
+use BinaryCats\UrlShortener\Http\OuoIoShortener;
+use BinaryCats\UrlShortener\Http\PolrShortener;
+use BinaryCats\UrlShortener\Http\ShorteStShortener;
+use BinaryCats\UrlShortener\Http\TinyUrlShortener;
 
 /**
  * @method string shorten(\Psr\Http\Message\UriInterface|string $url, array $options = [])
@@ -66,7 +66,7 @@ class UrlShortenerManager implements FactoryContract
      * Create an instance of the Bit.ly driver.
      *
      * @param array $config
-     * @return \LaraCrafts\UrlShortener\Http\BitLyShortener
+     * @return \BinaryCats\UrlShortener\Http\BitLyShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createBitLyDriver(array $config)
@@ -82,7 +82,7 @@ class UrlShortenerManager implements FactoryContract
      * Create an instance of the Firebase driver.
      *
      * @param array $config
-     * @return \LaraCrafts\UrlShortener\Http\FirebaseShortener
+     * @return \BinaryCats\UrlShortener\Http\FirebaseShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createFirebaseDriver(array $config)
@@ -99,7 +99,7 @@ class UrlShortenerManager implements FactoryContract
      * Create an instance of the Is.gd driver.
      *
      * @param array $config
-     * @return \LaraCrafts\UrlShortener\Http\IsGdShortener
+     * @return \BinaryCats\UrlShortener\Http\IsGdShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createIsGdDriver(array $config)
@@ -115,7 +115,7 @@ class UrlShortenerManager implements FactoryContract
      * Create an instance of the Ouo.io driver.
      *
      * @param array $config
-     * @return \LaraCrafts\UrlShortener\Http\OuoIoShortener
+     * @return \BinaryCats\UrlShortener\Http\OuoIoShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createOuoIoDriver(array $config)
@@ -130,7 +130,7 @@ class UrlShortenerManager implements FactoryContract
      * Create an instance of the Polr driver.
      *
      * @param array $config
-     * @return \LaraCrafts\UrlShortener\Http\PolrShortener
+     * @return \BinaryCats\UrlShortener\Http\PolrShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createPolrDriver(array $config)
@@ -146,7 +146,7 @@ class UrlShortenerManager implements FactoryContract
      * Create an instance of the Shorte.st driver.
      *
      * @param array $config
-     * @return \LaraCrafts\UrlShortener\Http\ShorteStShortener
+     * @return \BinaryCats\UrlShortener\Http\ShorteStShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createShorteStDriver(array $config)
@@ -160,7 +160,7 @@ class UrlShortenerManager implements FactoryContract
     /**
      * Create an instance of the TinyURL driver.
      *
-     * @return \LaraCrafts\UrlShortener\Http\TinyUrlShortener
+     * @return \BinaryCats\UrlShortener\Http\TinyUrlShortener
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createTinyUrlDriver()
@@ -172,7 +172,7 @@ class UrlShortenerManager implements FactoryContract
      * Get a URL shortener driver instance.
      *
      * @param string|null $name
-     * @return \LaraCrafts\UrlShortener\Contracts\Shortener
+     * @return \BinaryCats\UrlShortener\Contracts\Shortener
      */
     public function driver(string $name = null)
     {
@@ -218,7 +218,7 @@ class UrlShortenerManager implements FactoryContract
      * Resolve the given URL shortener.
      *
      * @param string $name
-     * @return \LaraCrafts\UrlShortener\Contracts\Shortener
+     * @return \BinaryCats\UrlShortener\Contracts\Shortener
      */
     protected function resolve(string $name)
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Integration;
+namespace BinaryCats\UrlShortener\Tests\Integration;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
-use LaraCrafts\UrlShortener\Http\FirebaseShortener;
-use LaraCrafts\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use BinaryCats\UrlShortener\Http\FirebaseShortener;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 class FirebaseShortenerTest extends TestCase

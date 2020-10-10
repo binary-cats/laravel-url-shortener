@@ -1,15 +1,16 @@
 {
-    "name": "laracrafts/laravel-url-shortener",
+    "name": "binary-cats/laravel-url-shortener",
     "description": "Powerful URL shortening tools in Laravel",
     "keywords": [
+        "binary-cats",
+        "bit.ly",
         "laravel",
         "lumen",
-        "url",
-        "shortening",
+        "shorte.st",
         "shortener",
-        "bit.ly",
+        "shortening",
         "tinyURL",
-        "shorte.st"
+        "url"
     ],
     "type": "library",
     "license": "MIT",
@@ -21,40 +22,52 @@
         {
             "name": "László Görög",
             "email": "contact@nergal.xyz"
-        }
+        },
+        {
+            "name": "Cyrill Kalita",
+            "homepage": "https://github.com/cyrillkalita"
+        },
     ],
     "require": {
-        "php": "^7.1",
-        "guzzlehttp/guzzle": "^6.2",
+        "php": ">=5.6.0",
+        "guzzlehttp/guzzle": "^6.2||^7.0",
         "guzzlehttp/promises": "^1.0",
         "guzzlehttp/psr7": "^1.4",
-        "illuminate/support": "^5.1 || ^6.0 || ^7.0",
+        "illuminate/support": "^5.1 || ^6.0 || ^7.0 || ^8.0",
         "psr/http-message": "^1.0"
     },
     "require-dev": {
-        "illuminate/routing": "^5.1 || ^6.0 || ^7.0",
-        "phpunit/phpunit": "^7.0"
+        "illuminate/routing": "^5.1 || ^6.0 || ^7.0 || ^8.0",
+        "phpunit/phpunit": "^7.0|^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {
-            "LaraCrafts\\UrlShortener\\": "src/"
+            "BinaryCats\\UrlShortener\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaraCrafts\\UrlShortener\\Tests\\": "tests/"
+            "BinaryCats\\UrlShortener\\Tests\\": "tests/"
         }
     },
     "config": {
         "sort-packages": true
     },
     "scripts": {
-        "tests": "./vendor/bin/phpunit --colors=always"
+        "test": "vendor/bin/phpunit --color=always",
+        "check": [
+            "php-cs-fixer fix --ansi --dry-run --diff .",
+            "phpcs --report-width=200 --report-summary  --report-full src/ tests/ --standard=PSR2 -n",
+            "phpmd src/,tests/ text ./phpmd.xml.dist"
+        ],
+        "fix": [
+            "php-cs-fixer fix --ansi ."
+        ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "\\LaraCrafts\\UrlShortener\\UrlShortenerServiceProvider"
+                "\\BinaryCats\\UrlShortener\\UrlShortenerServiceProvider"
             ]
         }
     }

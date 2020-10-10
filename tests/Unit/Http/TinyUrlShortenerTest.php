@@ -1,14 +1,14 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Unit\Http;
+namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
 use GuzzleHttp\Exception\ClientException;
-use LaraCrafts\UrlShortener\Http\TinyUrlShortener;
+use BinaryCats\UrlShortener\Http\TinyUrlShortener;
 
 class TinyUrlShortenerTest extends HttpTestCase
 {
     /**
-     * @var \LaraCrafts\UrlShortener\Http\TinyUrlShortener
+     * @var \BinaryCats\UrlShortener\Http\TinyUrlShortener
      */
     protected $shortener;
 

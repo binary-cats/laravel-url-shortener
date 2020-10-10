@@ -1,11 +1,11 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Integration;
+namespace BinaryCats\UrlShortener\Tests\Integration;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
-use LaraCrafts\UrlShortener\Http\ShorteStShortener;
-use LaraCrafts\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use BinaryCats\UrlShortener\Http\ShorteStShortener;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 class ShorteStShortenerTest extends TestCase
@@ -13,7 +13,7 @@ class ShorteStShortenerTest extends TestCase
     use HasUrlAssertions;
 
     /**
-     * @var \LaraCrafts\UrlShortener\Http\ShorteStShortener
+     * @var \BinaryCats\UrlShortener\Http\ShorteStShortener
      */
     protected $shortener;
 

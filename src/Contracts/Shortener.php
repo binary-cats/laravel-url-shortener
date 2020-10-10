@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Contracts;
+namespace BinaryCats\UrlShortener\Contracts;
 
 interface Shortener
 {

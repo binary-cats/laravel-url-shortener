@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Http;
+namespace BinaryCats\UrlShortener\Http;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;

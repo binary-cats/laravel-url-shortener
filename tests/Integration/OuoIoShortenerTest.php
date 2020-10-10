@@ -1,12 +1,12 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Integration;
+namespace BinaryCats\UrlShortener\Tests\Integration;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Support\Str;
-use LaraCrafts\UrlShortener\Http\OuoIoShortener;
-use LaraCrafts\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use BinaryCats\UrlShortener\Http\OuoIoShortener;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 class OuoIoShortenerTest extends TestCase
@@ -14,7 +14,7 @@ class OuoIoShortenerTest extends TestCase
     use HasUrlAssertions;
 
     /**
-     * @var \LaraCrafts\UrlShortener\Http\OuoIoShortener
+     * @var \BinaryCats\UrlShortener\Http\OuoIoShortener
      */
     protected $shortener;
 

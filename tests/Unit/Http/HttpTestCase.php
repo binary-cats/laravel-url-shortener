@@ -1,8 +1,8 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Unit\Http;
+namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
-use LaraCrafts\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 abstract class HttpTestCase extends TestCase
@@ -10,7 +10,7 @@ abstract class HttpTestCase extends TestCase
     use HasUrlAssertions;
 
     /**
-     * @var \LaraCrafts\UrlShortener\Tests\Unit\Http\MockClient
+     * @var \BinaryCats\UrlShortener\Tests\Unit\Http\MockClient
      */
     protected $client;
 

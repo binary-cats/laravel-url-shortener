@@ -1,11 +1,11 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Integration;
+namespace BinaryCats\UrlShortener\Tests\Integration;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
-use LaraCrafts\UrlShortener\Http\IsGdShortener;
-use LaraCrafts\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use BinaryCats\UrlShortener\Http\IsGdShortener;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 class IsGdShortenerTest extends TestCase
@@ -13,7 +13,7 @@ class IsGdShortenerTest extends TestCase
     use HasUrlAssertions;
 
     /**
-     * @var \LaraCrafts\UrlShortener\Http\IsGdShortener
+     * @var \BinaryCats\UrlShortener\Http\IsGdShortener
      */
     protected $shortener;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Unit\Http;
+namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
 use GuzzleHttp\Exception\ClientException;
-use LaraCrafts\UrlShortener\Http\FirebaseShortener;
+use BinaryCats\UrlShortener\Http\FirebaseShortener;
 
 class FirebaseShortenerTest extends HttpTestCase
 {
     /**
-     * @var \LaraCrafts\UrlShortener\Http\FirebaseShortener
+     * @var \BinaryCats\UrlShortener\Http\FirebaseShortener
      */
     protected $shortener;
 

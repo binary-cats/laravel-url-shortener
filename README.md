@@ -1,18 +1,19 @@
-# laravel-url-shortener
-Powerful URL shortening tools in Laravel
+# Url Shortener for Laravel
+Powerful URL shortening tools for your Laravel
 
 <p align="center">
-    <a href="https://travis-ci.org/LaraCrafts/laravel-url-shortener"><img src="https://travis-ci.org/LaraCrafts/laravel-url-shortener.svg?branch=master"></a>
-    <a href="https://packagist.org/packages/laracrafts/laravel-url-shortener"><img src="https://poser.pugx.org/laracrafts/laravel-url-shortener/downloads"></a>
-    <a href="https://packagist.org/packages/laracrafts/laravel-url-shortener"><img src="https://poser.pugx.org/laracrafts/laravel-url-shortener/version"></a>
-    <a href="https://scrutinizer-ci.com/g/LaraCrafts/laravel-url-shortener/"><img src="https://scrutinizer-ci.com/g/LaraCrafts/laravel-url-shortener/badges/coverage.png?b=master"></a>
-    <a href="https://packagist.org/packages/laracrafts/laravel-url-shortener"><img src="https://poser.pugx.org/laracrafts/laravel-url-shortener/license"></a>
+    <a href="https://packagist.org/packages/binary-cats/laravel-url-shortener"><img src="https://poser.pugx.org/binary-cats/laravel-url-shortener/downloads"></a>
+    <a href="https://packagist.org/packages/binary-cats/laravel-url-shortener"><img src="https://poser.pugx.org/binary-cats/laravel-url-shortener/version"></a>
+    <a href="https://scrutinizer-ci.com/g/binary-cats/laravel-url-shortener/"><img src="https://scrutinizer-ci.com/g/binary-cats/laravel-url-shortener/badges/coverage.png?b=master"></a>
+    <a href="https://packagist.org/packages/binary-cats/laravel-url-shortener"><img src="https://poser.pugx.org/binary-cats/laravel-url-shortener/license"></a>
 </p>
 
 - [Installation](#installation)
     - [Requirements](#requirements)
+    - [Laravel 8+](#laravel-8)
     - [Laravel 5.5+](#laravel-55)
     - [Laravel 5.1-5.4](#laravel-51-54)
+- [Configuration](#configuration)
 - [Usage](#usage)
     - [Changing the driver](#changing-the-driver)
     - [Adding your own drivers](#adding-your-own-drivers)
@@ -30,12 +31,12 @@ Powerful URL shortening tools in Laravel
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [License](#license)
-    
+
 ## Installation
 You can easily install this package using Composer, by running the following command:
 
 ```bash
-composer require laracrafts/laravel-url-shortener
+composer require binary-cats/laravel-url-shortener
 ```
 
 ### Requirements
@@ -43,6 +44,9 @@ This package has the following requirements:
 
 - PHP 7.1 or higher
 - Laravel 5.1 or higher
+
+### Laravel 8+
+If you use Laravel 8 you must have PHP 7.3 or higher (which is a root laravel requirment)
 
 ### Laravel 5.5+
 If you use Laravel 5.5 or higher, that's it. You can now use the package, continue to the [usage](#usage) section.
@@ -54,9 +58,87 @@ this by adding the following line to your `config/app.php` file:
 ```php
 'providers' => [
    ...
-   LaraCrafts\UrlShortener\UrlShortenerServiceProvider::class,
+   BinaryCats\UrlShortener\UrlShortenerServiceProvider::class,
    ...
 ],
+```
+
+## Configuration
+
+If you want to change the default configuration, you can publish it with:
+
+```bash
+php artisan vendor:publish --provider=BinaryCats\\UrlShortener\\UrlShortenerServiceProvider
+```
+
+The package will expose the following config file:
+```php
+return [
+
+    'default' => env('URL_SHORTENER_DRIVER', 'tiny_url'),
+
+    'shorteners' => [
+
+        'bit_ly' => [
+            'driver' => 'bit_ly',
+            'domain' => env('URL_SHORTENER_PREFIX', 'bit.ly'),
+            'token' => env('URL_SHORTENER_API_TOKEN'),
+        ],
+
+        'firebase' => [
+            'driver' => 'firebase',
+            'prefix' => env('URL_SHORTENER_PREFIX'),
+            'token' => env('URL_SHORTENER_API_TOKEN'),
+            'suffix' => env('URL_SHORTENER_STRATEGY', 'UNGUESSABLE'),
+        ],
+
+        'is_gd' => [
+            'driver' => 'is_gd',
+            'base_uri' => 'https://is.gd',
+            'statistics' => env('URL_SHORTENER_ANALYTICS', false),
+        ],
+
+        'ouo_io' => [
+            'driver' => 'ouo_io',
+            'token' => env('URL_SHORTENER_API_TOKEN'),
+        ],
+
+        'polr' => [
+            'driver' => 'polr',
+            'prefix' => env('URL_SHORTENER_PREFIX'),
+            'token' => env('URL_SHORTENER_API_TOKEN'),
+        ],
+
+        'shorte_st' => [
+            'driver' => 'shorte_st',
+            'token' => env('URL_SHORTENER_API_TOKEN'),
+        ],
+
+        'tiny_url' => [
+            'driver' => 'tiny_url',
+        ],
+
+        'v_gd' => [
+            'driver' => 'is_gd',
+            'base_uri' => 'https://v.gd',
+            'statistics' => env('URL_SHORTENER_ANALYTICS', false),
+        ],
+    ],
+];
+```
+
+Below is the full list of `.env` values to configure:
+
+```bash
+#-------------------------
+# Services:  Url Shortener
+#
+#-------------------------
+URL_SHORTENER_DRIVER=tiny_url
+URL_SHORTENER_PREFIX=
+URL_SHORTENER_API_TOKEN=
+URL_SHORTENER_STRATEGY=
+URL_SHORTENER_ANALYTICS=
 ```
 
 ## Usage
@@ -116,20 +198,21 @@ You can change the default driver by setting `URL_SHORTENER_DRIVER={driver}` in 
 config file and changing it directly.
 
 ### Adding your own drivers
-Much like Laravel's [core components](https://laravel.com/docs/5.0/extending#managers-and-factories), you can add your
-own drivers for this package. You can do this by adding the following code to a central place in your application
-(preferably a service provider).
+Much like all of Laravel, you can add your own drivers for this package.
+You can do this by adding the following code to `boot` method of your `AppServiceProvider`.
 
 ```php
-public function boot(ShortenerManager $shorteners)
+use BinaryCats\UrlShortener\UrlShortenerManager;
+
+public function boot(UrlShortenerManager $shorteners)
 {
-    $shorteners->extend('my_driver', function ($app, $config) {
-       // Return your driver instance here
+    $shorteners->extend('local', function ($app, $config) {
+        return new LocalUrlShortener($app, $config);
     });
 }
 ```
 
-Once you have registered your driver you can call it like any other driver.
+Once you have registered your driver you can call it just like any other driver.
 
 If you wrote a custom driver that others might find useful (such as a public online shortener service), please consider
 adding it to the package via a pull request.
@@ -165,7 +248,7 @@ Variable                  | Description
 
 This driver runs on Firebase's API. The API requires an access token, a URI prefix and a suffix. You can access these
 information on you firebase console. The token accessible under the project settings as "Web API Key" and the prefixes
-can be defined and accessed under the Dynamic Links menu. 
+can be defined and accessed under the Dynamic Links menu.
 
 The suffix can have the value `SHORT` or `UNGUESSABLE`.
 
@@ -194,7 +277,7 @@ Variable                  | Description
 This driver uses the Ouo.io API and requires an access token. The API allows for URL monetization via advertisements and
 provides analytics via its dashboard.
 
-Variable                  | Description 
+Variable                  | Description
 --------------------------|----------------------
 `URL_SHORTENER_API_TOKEN` | Your Ouo.io API token
 
@@ -234,6 +317,9 @@ find the author emails in the [composer.json](composer.json).
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
+
+This is a port from the original [LaraCraft's Url Shortener](https://github.com/BinaryCats/laravel-url-shortener).
+
 - [Choraimy Kroonstuiver](https://github.com/axlon)
 - [László Görög](https://github.com/nerg4l)
 - [All Contributors](../../contributors)

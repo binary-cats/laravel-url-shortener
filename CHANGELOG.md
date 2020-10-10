@@ -1,5 +1,10 @@
 # Changelog
 
+## [v8.0.0](https://github.com/binary-cats/laravel-url-shortener/releases/tag/v8.0.0) (2020-10-10)
+- Fork of the original project
+- Replaced namespace with BinaryCats
+- Upgraded composer denpdencies
+
 ## [v0.3.2](https://github.com/LaraCrafts/laravel-url-shortener/releases/tag/v0.3.2) (2019-09-12)
 - Fix shorten function not being accessible from UrlGenerator and UrlShortenerManager
 

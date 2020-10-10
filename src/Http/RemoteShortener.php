@@ -1,8 +1,8 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Http;
+namespace BinaryCats\UrlShortener\Http;
 
-use LaraCrafts\UrlShortener\Contracts\AsyncShortener;
+use BinaryCats\UrlShortener\Contracts\AsyncShortener;
 
 abstract class RemoteShortener implements AsyncShortener
 {

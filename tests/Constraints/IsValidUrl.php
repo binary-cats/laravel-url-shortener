@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraCrafts\UrlShortener\Tests\Constraints;
+namespace BinaryCats\UrlShortener\Tests\Constraints;
 
 use PHPUnit\Framework\Constraint\Constraint;
 

@@ -1,5 +1,5 @@
 # Contributing
-Contributions are **welcome** and will be fully **credited**. 
+Contributions are **welcome** and will be fully **credited**.
 
 Please read the following contribution guide before creating an issue or a pull request.
 
