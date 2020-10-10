@@ -2,12 +2,6 @@
 
 namespace BinaryCats\UrlShortener;
 
-use Closure;
-use GuzzleHttp\ClientInterface;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use InvalidArgumentException;
 use BinaryCats\UrlShortener\Contracts\Factory as FactoryContract;
 use BinaryCats\UrlShortener\Http\BitLyShortener;
 use BinaryCats\UrlShortener\Http\FirebaseShortener;
@@ -16,6 +10,12 @@ use BinaryCats\UrlShortener\Http\OuoIoShortener;
 use BinaryCats\UrlShortener\Http\PolrShortener;
 use BinaryCats\UrlShortener\Http\ShorteStShortener;
 use BinaryCats\UrlShortener\Http\TinyUrlShortener;
+use Closure;
+use GuzzleHttp\ClientInterface;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 /**
  * @method string shorten(\Psr\Http\Message\UriInterface|string $url, array $options = [])

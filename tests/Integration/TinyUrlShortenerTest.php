@@ -2,10 +2,10 @@
 
 namespace BinaryCats\UrlShortener\Tests\Integration;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Promise\PromiseInterface;
 use BinaryCats\UrlShortener\Http\TinyUrlShortener;
 use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise\PromiseInterface;
 use PHPUnit\Framework\TestCase;
 
 class TinyUrlShortenerTest extends TestCase
