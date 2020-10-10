@@ -26,7 +26,7 @@
         {
             "name": "Cyrill Kalita",
             "homepage": "https://github.com/cyrillkalita"
-        },
+        }
     ],
     "require": {
         "php": ">=5.6.0",
