@@ -2,8 +2,8 @@
 
 namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
-use GuzzleHttp\Exception\ClientException;
 use BinaryCats\UrlShortener\Http\FirebaseShortener;
+use GuzzleHttp\Exception\ClientException;
 
 class FirebaseShortenerTest extends HttpTestCase
 {

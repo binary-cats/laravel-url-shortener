@@ -2,8 +2,8 @@
 
 namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
-use GuzzleHttp\Exception\ClientException;
 use BinaryCats\UrlShortener\Http\IsGdShortener;
+use GuzzleHttp\Exception\ClientException;
 
 class IsGdShortenerTest extends HttpTestCase
 {

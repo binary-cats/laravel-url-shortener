@@ -2,11 +2,11 @@
 
 namespace BinaryCats\UrlShortener\Tests\Integration;
 
+use BinaryCats\UrlShortener\Http\IsGdShortener;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Support\Str;
-use BinaryCats\UrlShortener\Http\IsGdShortener;
-use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 class VGdShortenerTest extends TestCase

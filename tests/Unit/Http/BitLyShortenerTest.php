@@ -2,8 +2,8 @@
 
 namespace BinaryCats\UrlShortener\Tests\Unit\Http;
 
-use GuzzleHttp\Exception\ClientException;
 use BinaryCats\UrlShortener\Http\BitLyShortener;
+use GuzzleHttp\Exception\ClientException;
 
 class BitLyShortenerTest extends HttpTestCase
 {

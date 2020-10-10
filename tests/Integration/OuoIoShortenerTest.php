@@ -2,11 +2,11 @@
 
 namespace BinaryCats\UrlShortener\Tests\Integration;
 
+use BinaryCats\UrlShortener\Http\OuoIoShortener;
+use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Support\Str;
-use BinaryCats\UrlShortener\Http\OuoIoShortener;
-use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
 use PHPUnit\Framework\TestCase;
 
 class OuoIoShortenerTest extends TestCase

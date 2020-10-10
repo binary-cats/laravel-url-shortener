@@ -2,10 +2,10 @@
 
 namespace BinaryCats\UrlShortener\Tests\Integration;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Promise\PromiseInterface;
 use BinaryCats\UrlShortener\Http\FirebaseShortener;
 use BinaryCats\UrlShortener\Tests\Concerns\HasUrlAssertions;
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise\PromiseInterface;
 use PHPUnit\Framework\TestCase;
 
 class FirebaseShortenerTest extends TestCase
